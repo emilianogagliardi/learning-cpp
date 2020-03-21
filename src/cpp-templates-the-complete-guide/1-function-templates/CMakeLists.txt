@@ -1,0 +1,2 @@
+add_executable(template_fun_basics template_fun_basics.cpp)
+add_executable(template_fun_overload template_fun_overload.cpp)
