@@ -5,15 +5,20 @@
 #include <cassert>
 #include <iostream>
 
+template<typename T> class Stack;
+
+template<typename T>
+std::ostream& operator<<(std::ostream& os, const Stack<T>& s);
+
 template<typename T>
 class Stack {
+    friend std::ostream& operator<< <T> (std::ostream& os, const Stack<T>& s);
 public:
     void push(const T&);
     T pop();
     const T& top();
     bool empty() { return elems.empty(); }
     void printOn(std::ostream&) const;
-    friend std::ostream& operator<<(std::ostream&, const Stack<T>);
 private:
     std::vector<T> elems;
 };

@@ -11,4 +11,11 @@ int main()
     // If not called the member method is not instantiated, thus can use stack
     // event with types for which operator<< is defined (as std::pair)
     // pairsStack.printOn(std::cout);
+
+    Stack<int> si;
+    si.push(1);
+    si.push(1);
+    si.push(1);
+    si.push(1);
+    std::cout << si << "\n";
 }
