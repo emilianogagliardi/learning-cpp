@@ -16,8 +16,8 @@ class Stack {
 public:
     void push(const T&);
     T pop();
-    const T& top();
-    bool empty() { return elems.empty(); }
+    const T& top() const;
+    bool empty() const { return elems.empty(); }
     void printOn(std::ostream&) const;
 private:
     std::vector<T> elems;
