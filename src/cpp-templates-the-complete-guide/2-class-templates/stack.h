@@ -99,4 +99,53 @@ void Stack<std::string>::printOn(std::ostream& os) const
         os << e << "\n";
 }
 
+///////////////////////////////////////////////////////////////////////////////
+// Partial specialization: stack of pointers
+///////////////////////////////////////////////////////////////////////////////
+
+// template specialization can have different interface
+
+template<typename T>
+class Stack<T*> {
+public:
+    Stack() { std::cout << "Tempalte stack of pointers\n"; }
+    void push(T*);
+    // pop return so that caller can delete 
+    T* pop();
+    T* top() const;
+    bool empty() const { return elems.empty(); }
+    void printOn(std::ostream&) const;
+private:
+    std::vector<T*> elems;
+};
+
+template<typename T>
+void Stack<T*>::push(T* t)
+{
+    elems.push_back(t);
+}
+
+template<typename T>
+T* Stack<T*>::pop()
+{
+    assert(!elems.empty());
+    T* p = elems.back();
+    elems.pop_back();
+    return p;
+}
+
+template<typename T>
+T* Stack<T*>::top() const
+{
+    assert(!elems.empty());
+    return elems.back();
+}
+
+template<typename T>
+void Stack<T*>::printOn(std::ostream& os) const
+{
+    for (const auto& e : elems)
+        os << *e << "\n";
+}
+
 #endif // !STACK_H

@@ -23,5 +23,12 @@ int main()
     stringStack.push("ciao");
     stringStack.push("ciao");
     stringStack.push("ciao");
-    std::cout << stringStack;
+    std::cout << stringStack << "\n";
+
+    Stack<int*> ptrStack;
+    ptrStack.push(new int(1));
+    ptrStack.push(new int(1));
+    ptrStack.push(new int(1));
+    delete ptrStack.pop();
+    std::cout << ptrStack;
 }
