@@ -6,7 +6,7 @@ int main()
     pairsStack.push({ 1, 2 });
     pairsStack.push({ 1, 2 });
     auto a = pairsStack.top();
-    auto b = pairsStack.pop();
+    pairsStack.pop();
     // No operator<< defined for pair, call to this line cause compile error
     // If not called the member method is not instantiated, thus can use stack
     // event with types for which operator<< is defined (as std::pair)
@@ -18,4 +18,10 @@ int main()
     si.push(1);
     si.push(1);
     std::cout << si << "\n";
+
+    Stack<std::string> stringStack;
+    stringStack.push("ciao");
+    stringStack.push("ciao");
+    stringStack.push("ciao");
+    std::cout << stringStack;
 }
