@@ -39,7 +39,7 @@ T Stack<T>::pop()
 }
 
 template<typename T>
-const T& Stack<T>::top()
+const T& Stack<T>::top() const
 {
     assert(!elems.empty());
     return elems.back();
