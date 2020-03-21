@@ -1,2 +1,3 @@
 add_executable(use_stack use_stack.cpp)
 add_executable(use_two_templ_params use_two_templ_params.cpp)
+add_executable(use_stack2 use_stack2.cpp)
