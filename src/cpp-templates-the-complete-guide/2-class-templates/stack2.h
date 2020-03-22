@@ -3,12 +3,15 @@
 
 #include <vector>
 #include <cassert>
+#include <string>
 
 // A stack with specifiable underline container
 
 template<typename T, typename C = std::vector<T>>
 class Stack {
 public:
+    Stack() = default;
+    Stack(const T& t) : elems({ t }) {}
     void push(const T&);
     void pop();
     const T& top() const;
@@ -16,6 +19,9 @@ public:
 private:
     C elems;
 };
+
+// Deduction guide to handle c-style string initialization
+Stack(const char* c)->Stack<std::string>;
 
 template<typename T, typename C>
 void Stack<T, C>::push(const T& t)

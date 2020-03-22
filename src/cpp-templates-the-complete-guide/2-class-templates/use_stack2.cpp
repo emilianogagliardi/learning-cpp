@@ -15,6 +15,9 @@ int main()
     stackVectorInt.push(1);
     stackVectorInt.push(1);
 
+    // Class template argument deduction (here deduced from copy constructor)
+    auto stackVectorInt2 = stackVectorInt;
+
     StackDeque<double> stackDequeDouble;
     stackDequeDouble.push(1.0);
     stackDequeDouble.push(1.0);
@@ -31,4 +34,9 @@ int main()
     // stackSetDouble.push(2.0);
     // stackSetDouble.top();
     // stackSetDouble.pop();
+
+    // Use deduction guide from c-style string to std::string
+    Stack stringStack{ "ciao" };
+    stringStack.push("2");
+    auto s = stringStack.top();
 }
