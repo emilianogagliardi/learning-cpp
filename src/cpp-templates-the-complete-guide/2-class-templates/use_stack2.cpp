@@ -4,13 +4,18 @@
 #include <list>
 #include <set>
 
+// From c++11 can define alias tempaltes
+
+template<typename T>
+using StackDeque = Stack<T, std::deque<T>>;
+
 int main() 
 {
     Stack<int> stackVectorInt;
     stackVectorInt.push(1);
     stackVectorInt.push(1);
 
-    Stack<double, std::deque<double>> stackDequeDouble;
+    StackDeque<double> stackDequeDouble;
     stackDequeDouble.push(1.0);
     stackDequeDouble.push(1.0);
 
