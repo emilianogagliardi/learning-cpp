@@ -1,19 +1,9 @@
 #include "print.h"
-#include "fold.h"
+#include "variadic_expressions.h"
+#include "vt_application_example.h"
+#include "variadic_class_templates.h"
 
-// An example of use of variadic template
-// (as for make_shared, make_unique....)
-template <typename T, typename... Args>
-T make(Args&&... args) // perfectly forward arguments
-{
-    return T(args...);
-}
-
-template <typename F, typename... Args>
-auto call_function(F&& f, Args&&... args)
-{
-    return f(args...);
-}
+#include <array>
 
 int max(int a, int b)
 {
@@ -27,6 +17,9 @@ int main()
     std::cout << "\n";
     print2('a', 1, 2.3, "b", true);
     print3('a', 1, 2.3, "b", true);
+    printDoubled(1, 2, 3, std::string("ciao"));
+    std::cout << "\n";
+    printPlusOne(1, 2, 3, 4);
     std::cout << "\n";
     // sum with fold
     std::cout << sum_foldl(1, 2, 3, 2.1) << "\n";
@@ -42,4 +35,15 @@ int main()
         p.second << "\n";
     std::cout << "\ncalled function max with call_function " << 
         call_function(max, 2, 1) << "\n";
+    // example compile time variadic expression
+    std::cout << "\nisHomogeneous(1, 1, 2, 3) = " << isHomogeneous(1, 1, 2, 3);
+    std::cout << "\nisHomogeneous('1', 1, 2, 2.1) = " << isHomogeneous('1', 1, 2, 2.1) << "\n";
+    // example variadic indices
+    int a[] = { 1, 2, 3, 4, 5 };
+    printElems(a, 2, 3, 1, 0);
+    std::cout << "\n";
+    printIdx<2, 3, 1, 0>(a);
+    std::cout << "\n";
+    std::array<int, 3> container{ 1, 2, 3 };
+    printElements2(container, Indices<0, 1>{});
 }
