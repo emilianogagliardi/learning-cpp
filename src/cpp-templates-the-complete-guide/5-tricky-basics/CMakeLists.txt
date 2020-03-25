@@ -1,0 +1,1 @@
+add_executable(tricky_basics main.cpp)
