@@ -51,6 +51,7 @@ template<typename T>
 template<typename U>
 Stack<T>::Stack(const Stack<U>& other)
 {
+    std::cout << "called converting copy ctor\n";
     elems.clear();
     elems.insert(elems.begin(), other.elems.cbegin(), other.elems.cend());
 }
