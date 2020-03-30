@@ -5,4 +5,5 @@
 int main() {
     use_perfect_forwarding();
     use_enable_if_example();
+    use_templ_copyctor();
 }
