@@ -27,8 +27,9 @@ private:
     std::string name;
 };
 
-void use_person()
+void use_enable_if_example()
 {
+    std::cout << "USE ENABLE IF EXAMPLE\n";
     std::string s = "sname";
     Person p1(s); // init with string object => calls TMPL-CONSTR
     Person p2("tmp"); // init with string literal => calls TMPL-CONSTR
@@ -37,6 +38,7 @@ void use_person()
     // was not disabled with enable_if
     Person p3(p1);
     Person p4(std::move(p1));
+    std::cout << "\n";
 }
 
 #endif // !ENABLE_IF_EXAMPLE_H

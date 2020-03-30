@@ -13,14 +13,16 @@ void g(X&&) { std::cout << "r-value reference\n"; }
 // immutable, and movable objects.
 template <typename T> void f(T&& x) { g(std::forward<T>(x)); } 
 
-void use_f()
+void use_perfect_forwarding()
 {
+    std::cout << "USE PERFECT FORWARDING\n";
     const X x1;
     X x2;
     f(x1);
     f(x2);
     f(X());
     f(std::move(x2));
+    std::cout << "\n";
 }
 
 #endif // !PERFECT_FORWARDING_H
