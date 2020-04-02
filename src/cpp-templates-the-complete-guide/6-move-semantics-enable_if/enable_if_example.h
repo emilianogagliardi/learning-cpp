@@ -38,7 +38,6 @@ void use_enable_if_example()
     // was not disabled with enable_if
     Person p3(p1);
     Person p4(std::move(p1));
-    std::cout << "\n";
 }
 
 #endif // !ENABLE_IF_EXAMPLE_H
