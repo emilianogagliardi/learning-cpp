@@ -1,0 +1,1 @@
+add_executable(compile_time_programming main.cpp)
