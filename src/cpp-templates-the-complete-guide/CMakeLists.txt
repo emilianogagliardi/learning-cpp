@@ -5,3 +5,6 @@ add_subdirectory(05-tricky-basics)
 add_subdirectory(06-move-semantics-enable_if)
 add_subdirectory(08-compile-time-programming)
 add_subdirectory(11-generic-libraries)
+add_subdirectory(19-implementing-traits)
+
+set(CMAKE_CXX_STANDARD 17)

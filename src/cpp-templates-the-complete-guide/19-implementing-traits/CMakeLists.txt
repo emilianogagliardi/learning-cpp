@@ -1,0 +1,1 @@
+add_executable(implementing_traits main.cpp)
