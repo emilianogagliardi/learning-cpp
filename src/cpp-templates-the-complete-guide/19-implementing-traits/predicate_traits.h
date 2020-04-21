@@ -45,6 +45,7 @@ void use_predicate_traits() {
     bool b{};
     foo(a);
     foo(b);
+    std::cout << "\n";
 }
 
 #endif // !PREDICATE_TRAITS_H
