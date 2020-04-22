@@ -26,10 +26,21 @@ std::array<RemoveConstVolatile<RemoveReference<PlusResult<T1, T2>>>, S>
     return a;
 }
 
+// NOTE Plus result is not SFINAE-friendly
+
+class NonPlusA {};
+class NonPlusB {};
+
+template <std::size_t S>
+std::array<NonPlusA, S> add_arrays(std::array<NonPlusA, S>, std::array<NonPlusB, S>) {}
+
 void use_result_traits()
 {
     std::array<int, 4> a{ 1, 2, 3, 4 };
     std::array<int, 4> b = add_arrays(a, a);
+    std::array<NonPlusA, 1> na;
+    std::array<NonPlusB, 1> nb;
+    //add_arrays(na, nb); // compile error
 }
 
 #endif // !RESULT_TYPE_TRAITS_H

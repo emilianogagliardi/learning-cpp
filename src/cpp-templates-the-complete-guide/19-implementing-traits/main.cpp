@@ -5,6 +5,7 @@
 #include "result_type_traits.h"
 #include "sfinae_overload.h"
 #include "sfinae_partial_spec.h"
+#include "sfinae_friendly.h"
 
 int main() {
     use_accumulate();
