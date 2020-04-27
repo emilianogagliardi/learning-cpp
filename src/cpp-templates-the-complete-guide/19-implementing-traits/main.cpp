@@ -7,6 +7,7 @@
 #include "sfinae_partial_spec.h"
 #include "sfinae_friendly.h"
 #include "is_conv_to_example.h"
+#include "detect_member.h"
 
 int main() {
     use_accumulate();
@@ -17,4 +18,5 @@ int main() {
     use_sfinae_overload();
     use_sfinae_partial_spec();
     use_is_convertible();
+    use_detect_member();
 }
